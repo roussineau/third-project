@@ -1,0 +1,375 @@
+:root {
+    --fuenteHeading: 'PT Sans', sans-serif;
+    --fuenteParrafos: 'Open Sans', sans-serif;
+
+    --primario: #784d3c;
+    --secundario: #e3b37d;
+    --marronOscuro: #481d0c;
+    --blanco: #fff;
+    --gris: #a0a0a0;
+    --grisOscuro: #202020;
+    --negro: #000;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+    /* 1rem = 10px */
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: var(--fuenteParrafos);
+    font-size: 1.6rem;
+    line-height: 2;
+    /* interlineado */
+}
+
+
+
+/* Globales */
+
+.contenedor {
+    max-width: 120rem;
+    width: 90%;
+    /* se puede lograr lo de esas dos propiedades solo con width: min(90%, 120rem) */
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+    /* para sacar las decoraciones de los links */
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--fuenteHeading);
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 5.2rem;
+}
+
+h2 {
+    font-size: 4.7rem;
+}
+
+h3 {
+    font-size: 3.8rem;
+}
+
+h4 {
+    font-size: 2.8rem;
+}
+
+img {
+    max-width: 100%;
+    border: 1px solid var(--negro);
+}
+
+.boton {
+    display: block;
+    font-family: var(--fuenteHeading);
+    color: var(--blanco);
+    text-align: center;
+    padding: 1rem 3rem;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    /* para que el texto sea en mayusculas */
+    font-weight: 700;
+    transition: background-color 0.2s ease;
+    border: none;
+}
+
+.boton:hover{
+    cursor: pointer;
+}
+
+/* Utilidades */
+
+.no-margin {
+    margin: 0;
+}
+
+.no-padding {
+    padding: 0;
+}
+
+.centrar-texto {
+    text-align: center;
+}
+
+
+
+/* Header */
+
+.webp .header {
+    background-image: url(../img/banner.webp);
+}
+
+.no-webp .header {
+    background-image: url(../img/banner.jpg);
+}
+
+.header {
+    height: 60rem;
+    background-size: cover;
+    /* para que no se repita la imagen de fondo */
+    background-position: center center;
+    /* para que el fondo siempre sea el centro de la imagen */
+}
+
+.header__texto {
+    color: var(--blanco);
+    text-align: center;
+    line-height: 1.9;
+    margin-top: 6rem;
+    font-size: 1.7rem;
+}
+
+.header-titulo {
+    margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+    .header__texto {
+        margin-top: 15rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .barra {
+        display: flex;
+        justify-content: space-between;
+        /* para que queden los elementos en extremos opuestos */
+        align-items: center;
+        /* para centrar los elementos verticalmente */
+    }
+}
+
+.logo {
+    color: var(--blanco);
+}
+
+.logo__nombre {
+    font-weight: 400;
+    line-height: 2;
+}
+
+.logo__bold {
+    font-weight: 700;
+    /* negrita */
+}
+
+@media (min-width: 768px) {
+    .navegacion {
+        display: flex;
+        gap: 2rem;
+    }
+}
+
+.navegacion__enlace {
+    display: block;
+    text-align: center;
+    font-size: 1.8rem;
+    color: var(--blanco);
+}
+
+.navegacion__enlace:hover {
+    color: var(--gris);
+}
+
+
+/* Contenido principal */
+
+@media (min-width: 768px) {
+    .contenido-principal {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        column-gap: 4rem;
+    }
+}
+
+
+
+/* Blog */
+
+.entrada {
+    border-bottom: 1px solid var(--gris);
+    margin-bottom: 2rem;
+}
+
+.entrada:last-of-type {
+    /* para sacarle la separacion al ultimo articulo */
+    border: none;
+    margin: 0;
+}
+
+.boton--primario {
+    background-color: var(--negro);
+    margin-bottom: 2rem;
+}
+
+.boton--primario:hover {
+    background-color: var(--grisOscuro);
+}
+
+
+@media (min-width: 768px) {
+    .boton {
+        display: inline-block;
+        /* inline no toma margin ni width, pero inline-block si */
+    }
+}
+
+.entrada__contenido--titulo {
+    margin-top: 2rem;
+}
+
+
+
+/* Aside */
+
+.boton--secundario {
+    background-color: var(--primario);
+    border-radius: 8px;
+}
+
+.boton--secundario:hover {
+    background-color: var(--marronOscuro);
+}
+
+.cursos {
+    list-style: none;
+    /* para eliminar las viñetas de la ul */
+}
+
+.widget-curso {
+    border-bottom: 1px solid var(--gris);
+    margin-bottom: 2rem;
+    background-color: var(--secundario);
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+.widget-curso:last-of-type {
+    border: none;
+    margin-bottom: 0;
+}
+
+.widget-curso__label {
+    font-family: var(--fuenteHeading);
+    font-weight: 700;
+}
+
+.widget-curso__info {
+    font-weight: 400;
+}
+
+.widget-curso__info,
+.widget-curso__label,
+.curso__label,
+.curso__info,
+.articulo__texto {
+    font-size: 2rem;
+}
+
+.footer {
+    background-color: var(--negro);
+    padding: 2rem 0;
+}
+
+
+
+/* Nosotros */
+
+.sobre-nosotros {
+    margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+    .sobre-nosotros {
+        display: flex;
+        gap: 2rem;
+    }
+
+    .sobre-nosotros__imagen,
+    .sobre-nosotros__texto {
+        flex-basis: 50%;
+    }
+}
+
+
+
+/* Cursos */
+
+.curso {
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--gris);
+}
+
+@media (min-width: 768px) {
+    .curso {
+        display: flex;
+        gap: 2rem;
+    }
+}
+
+.curso__label {
+    font-family: var(--fuenteHeading);
+    font-weight: 700;
+}
+
+.curso__info {
+    font-weight: 400;
+}
+
+
+
+/* Contacto */
+
+.contacto-bg {
+    background-image: url(../img/contacto.jpg);
+    height: 40rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.formulario {
+    background-color: var(--blanco);
+    margin: -5rem auto 0 auto;
+    /* para que el form se superponga a la imagen de fondo del div */
+    width: 95%;
+    padding: 3rem;
+}
+
+.campo {
+    display: flex;    /* para usar la propiedad flex en los hijos */
+    margin-bottom: 2rem;
+    gap: 2rem;
+    max-width: 100%;
+}
+
+.campo__label {
+    flex: 0 0 6.5rem;
+    text-align: right;
+}
+
+.campo__field {
+    flex: 1 1;
+    max-width: 100%;
+    border: 1px solid var(--gris);
+}
+
+.campo__field--textarea {
+    resize: none;
+    height: 20rem;
+}
